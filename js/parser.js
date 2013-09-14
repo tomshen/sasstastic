@@ -1,6 +1,5 @@
-function parseCSS (css) {
+function parseSCSS (css) {
   // We pretend @* CSS selectors don't exist.
-  var tree = {};
 
   function getNode(currNode, selectors) {
     if(selectors.length === 0)
@@ -29,23 +28,38 @@ function parseCSS (css) {
     node['properties'] = node['properties'].concat(properties);
   }
 
+  var tree = { '@mixin': [], 'variables': [] };
+  css = css.trim();
+
   var i = 0;
   while(i < css.length) {
-    var openBraceIndex = css.indexOf('{', i);
-    var closeBraceIndex = css.indexOf('}',openBraceIndex);
-    var selectorGroups = css.slice(i, openBraceIndex).split(',')
-                            .map(function (s) {
-                              return s.trim().replace('.', ' .')
-                                             .replace('#', ' #')
-                                             .split(' ');
-                            });
-    var properties = css.slice(openBraceIndex + 1,
-                               closeBraceIndex).split(';');
-    selectorGroups.forEach(function (selectors) {
-      addProperties(selectors, properties);
-    });
-    i = closeBraceIndex + 1;
+    // handle variables
+    if(css[i] === '$') {
+      var semicolonIndex = css.indexOf(';', i);
+      var variableAssignment = css.slice(i, semicolonIndex).split(':');
+      var variableName = variableAssignment[0].trim(),
+          variableValue = variableAssignment[1].trim();
+      tree.variables[variableName] = variableValue;
+      i = semicolonIndex + 1;
+    } else {
+      var openBraceIndex = css.indexOf('{', i);
+      var closeBraceIndex = css.indexOf('}',openBraceIndex);
+      var selectorGroups = css.slice(i, openBraceIndex).split(',')
+                              .map(function (s) {
+                                return s.trim().replace('.', ' .')
+                                               .replace('#', ' #')
+                                               .split(' ');
+                              });
+      var properties = css.slice(openBraceIndex + 1,
+                                 closeBraceIndex).split(';');
+      selectorGroups.forEach(function (selectors) {
+        addProperties(selectors, properties);
+      });
+      i = closeBraceIndex + 1;
+    }
   }
 
   return tree;
 }
+
+module.exports.parseSCSS = parseSCSS;
