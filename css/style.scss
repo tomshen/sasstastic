@@ -1,3 +1,27 @@
+@mixin title-text {
+	font-family: "bree", "helvetica", arial, sans-serif;
+	font-style: italic;
+}
+
 html {
 	font-size: 62.5%;
+}
+
+
+.content-container {
+	max-width: 60rem;
+	margin: auto;
+}
+
+
+.greeting {
+	@include title-text;
+	.title {
+		font-size: 7.2rem;
+	}
+
+	.subtitle {
+		font-size: 4.2rem;
+		color: #ce4dd6;
+	}
 }

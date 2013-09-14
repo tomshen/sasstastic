@@ -1,2 +1,15 @@
 html {
   font-size: 62.5%; }
+
+.content-container {
+  max-width: 60rem;
+  margin: auto; }
+
+.greeting {
+  font-family: "bree", "helvetica", arial, sans-serif;
+  font-style: italic; }
+  .greeting .title {
+    font-size: 7.2rem; }
+  .greeting .subtitle {
+    font-size: 4.2rem;
+    color: #ce4dd6; }
