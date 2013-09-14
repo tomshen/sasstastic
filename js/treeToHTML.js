@@ -1,21 +1,26 @@
 ﻿var propertiesKey = "properties";
 var indentation = "    ";
-var frequentValues = {};
+var propertyValueStats = {};
+var valueStats = {};
 
-// First pass: assume that everything has one value
-// Second pass: shorthand, with only one value of each type
-// Third pass: shorthand, with multiple values of any type
-function statsOnValues(property, values) {
-  if (frequentValues[property] === undefined) {
-    frequentValues[property] = {};
+
+function updatePropertyValueStats(property, values) {
+  if (propertyValueStats[property] === undefined) {
+    propertyValueStats[property] = {};
   }
 
   $.each(values, function(idx, value) {
-    if (frequentValues[property][value] === undefined) {
-      frequentValues[property][value] = 0;
+    if (propertyValueStats[property][value] === undefined) {
+      propertyValueStats[property][value] = 0;
     }
 
-    frequentValues[property][value] += 1;
+    propertyValueStats[property][value] += 1;
+
+    if (valueStats[value] === undefined) {
+      valueStats[value] = 0;
+    }
+
+    valueStats[value] += 1;
   });
 }
 
@@ -51,7 +56,7 @@ function leafToHTML(leaf) {
     });
 
     result.push(newLine + ";<br>");
-    statsOnValues(property, values);
+    updatePropertyValueStats(property, values);
   });
 
   return result;
