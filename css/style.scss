@@ -1,42 +1,104 @@
+
+$submit-color: #58D64D;
+
 @mixin text-title {
-	font-family: "bree", "helvetica", arial, sans-serif;
-	font-style: italic;
+    font-family: "bree", "helvetica", arial, sans-serif;
+    font-style: italic;
 }
 
 @mixin text-mono {
-	font-family: "consolas", monospace;
+    font-family: "consolas", monospace;
 }
 
 @mixin text-body {
-	font-family: "helvetica", trebuchet, sans-serif;
+    font-family: "helvetica", arial, sans-serif;
 }
 
+@mixin unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+@mixin button {
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+    &:active {
+        opacity: 0.9;
+    }
+}
 
 html {
-	@include text-body;
-	font-size: 62.5%;
+    @include text-body;
+    font-size: 62.5%;
 }
 
 body {
-	font-size: 1.6rem;
+    font-size: 1.6rem;
 }
 
 .content-container {
-	max-width: 60rem;
-	margin: auto;
+    max-width: 60rem;
+    margin: auto;
 }
 
 
 .greeting {
-	@include text-title;
+    @include text-title;
 
-	.title {
-		font-size: 7.2rem;
-	}
+    .title {
+        font-size: 7.2rem;
+    }
 
-	.subtitle {
-		font-size: 4.2rem;
-		color: #ce4dd6;
-	}
+    .subtitle {
+        font-size: 4.2rem;
+        color: #ce4dd6;
+    }
 }
 
+.css-entry {
+    text-align: right;
+    textarea {
+        @include text-mono;
+
+        resize: none;
+        width: 60rem;
+        margin: 2rem 0rem;
+        padding: 0rem;
+        height: 37.2rem;
+        border: none;
+        outline: none;
+    }
+
+    input[type=button] {
+        @include button;
+        border-radius: 0.3rem;
+        color: $submit-color;
+        background: none;
+        border: 1px solid $submit-color;
+        margin: 0;
+        padding: 0.2rem 0.3rem;
+        font-weight: 700;
+        font-size: 1.6rem;
+    }
+}
+
+.css-container {
+    @include text-mono;
+    .active-type {
+
+        @include button;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .active-type.highlighted {
+        background-color: rgba(0, 255, 0, 0.4)
+    }
+}

@@ -22,12 +22,12 @@
 		</div>
 
 		<div class="css-entry">
-			<p>Enter your css here</p>
-			<textarea></textarea>
+			<textarea placeholder="Enter your project's CSS..." autofocus></textarea>
+			<input type="button" value="Submit CSS">
 		</div>
 
 
-		<div class="css-editor">
+		<div class="css-editor" style="display: none">
 			<div class="instructions">
 				<div class="heading">Instructions</div>
 				<p>We'll highlight attributes in your CSS that might be related.</p>
@@ -44,10 +44,10 @@
 					<input id="variable-value-input" type="text" value="12px">
 				</div>
 				<div class='variable-instances'>325 instances</div>
-				
+
 			</div>
 
-			<div class="css-container">
+			<div class="css-container"  style="display: none">
 				body {
 					font-size: 1.6rem;
 				}
@@ -62,11 +62,11 @@
 					@include text-title;
 
 					.title {
-						font-size: 7.2rem;
+						font-size: <span class="length active-type">7.2rem</span>;
 					}
 
 					.subtitle {
-						font-size: 4.2rem;
+						font-size: <span class="length active-type highlighted">4.2rem</span>;
 						color: #ce4dd6;
 					}
 				}
