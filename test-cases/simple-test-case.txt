@@ -15,7 +15,7 @@ DESIRED TREE
             "properties" : [
                 "margin: 1px 2px;"
             ]
-        }
+        },
         "properties" : [
             "margin: 1px;"
         ]
