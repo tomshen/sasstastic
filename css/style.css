@@ -56,3 +56,11 @@ body {
       opacity: 0.9; }
   .css-container .active-type.highlighted {
     background-color: rgba(0, 255, 0, 0.4); }
+  .css-container .selector-content {
+    margin-left: 2em; }
+  .css-container .selector {
+    margin-top: 1em; }
+  .css-container .selector-name {
+    color: green; }
+  .css-container .property-name {
+    color: teal; }

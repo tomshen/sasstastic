@@ -30,13 +30,7 @@
 		</div>
 
 
-		<div class="css-editor" style="display: none">
-			<div class="instructions">
-				<div class="heading">Instructions</div>
-				<p>We'll highlight attributes in your CSS that might be related.</p>
-				<p>You name the variable and check our work, highlighting attributes that are related and unhighlighting ones that aren't.</p>
-				<p>Related attributes will have a green background. Attributes that could be related will have a grey background. Click the attribute to toggle its state.</p>
-			</div>
+		<div class="css-editor">
 			<div class="variable">
 				<div class='variable-name'>
 					<span class="variable-label">Variable name: </span>
@@ -47,19 +41,30 @@
 					<input id="variable-value-input" type="text" value="12px">
 				</div>
 				<div class='variable-instances'>325 instances</div>
-
+				<div class="instructions">
+					<div class="heading" id="instructions-toggle">Instructions</div>
+					<div id="instructions-content">
+						<p>We'll highlight attributes in your CSS that might be related.</p>
+						<p>You name the variable and check our work, highlighting attributes that are related and unhighlighting ones that aren't.</p>
+						<p>Related attributes will have a green background. Attributes that could be related will have a grey background. Click the attribute to toggle its state.</p>
+					</div>
+					
+				</div>
 			</div>
 
 			<div class="css-container">
 
-<div class = 'selector'>.div1 {
-    margin:<span class = 'margin 1px px'>1px</span>;<br>
+<div class = 'selector'> <span class="selector-name">.div1</span> {
+    	<div class="selector-content">
+    <span class="property-name">margin:</span><span class = 'value margin 1px px'>1px</span>;<br>
 
-    <div class = 'selector'>.div2 {
-        margin:<span class = 'margin 1px px'>1px</span><span class = 'margin 2px px'>2px</span>;<br>
-        padding:<span class = 'padding 1px px'>1px</span><span class = 'padding 2px px'>2px</span>;<br>
+    <div class = 'selector'><span class="selector-name">.div2</span> {
+    	<div class="selector-content">
+	        <span class="property-name">margin:</span><span class = 'value margin 1px px'>1px</span><span class = 'value margin 2px px'>2px</span>;<br>
+	        <span class="property-name">padding:</span><span class = 'value padding 1px px'>1px</span><span class = 'value padding 2px px'>2px</span>;<br>
+	    </div>
     }</div>
-}</div>
+</div>}</div>
 			</div>
 
 		</div>
