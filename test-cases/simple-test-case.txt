@@ -1,0 +1,32 @@
+﻿INITIAL CSS
+
+.div1 {
+  margin: 1px;
+}
+
+.div1 .div2 {
+  margin: 1px 2px;
+}
+
+DESIRED TREE
+{
+    ".div1" : {
+        ".div2" : {
+            "properties" : [
+                "margin: 1px 2px;"
+            ]
+        }
+        "properties" : [
+            "margin: 1px;"
+        ]
+    }
+}
+
+
+.div1 {
+  margin: <span class = "margin numeric 1px">1px</span>;
+
+  .div2 {
+    margin: <span class = "margin numeric 1px">1px</span> <span class = "margin numeric 2px">2px</span>;
+  }
+}
