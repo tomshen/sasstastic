@@ -45,7 +45,7 @@ function treeToHTMLHelper(selector, tree) {
 
   var treeKeys = Object.keys(tree).filter(function(key) { return key !== propertiesKey; });
   treeKeys.unshift(propertiesKey);
-  var result = ["<div class = 'selector'>" + selector + " {"];
+  var result = ["<div class = 'selector'>" + selector + " {", indentation + "<div>"];
   $.each(treeKeys, function(idx, subtreeSelector) {
     if (subtreeSelector !== propertiesKey) {
       result.push("");
@@ -59,6 +59,7 @@ function treeToHTMLHelper(selector, tree) {
     });
   });
 
+  result.push(indentation + "</div>");
   result.push("}</div>");
   return result;
 }
