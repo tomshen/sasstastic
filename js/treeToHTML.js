@@ -45,7 +45,7 @@ function treeToHTMLHelper(selector, tree) {
 
   var treeKeys = Object.keys(tree).filter(function(key) { return key !== propertiesKey; });
   treeKeys.unshift(propertiesKey);
-  var result = ["<div class = 'selector'><span class = 'selector-name'>" + selector + "</span> {", indentation + "<div>"];
+  var result = ["<div class = 'selector'><span class = 'selector-name'>" + selector + "</span> {", indentation + "<div class = 'selector-content'>"];
   $.each(treeKeys, function(idx, subtreeSelector) {
     if (subtreeSelector !== propertiesKey) {
       result.push("");
