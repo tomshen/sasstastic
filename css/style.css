@@ -1,0 +1,57 @@
+html {
+  font-family: "helvetica", arial, sans-serif;
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.6rem; }
+
+.content-container {
+  max-width: 60rem;
+  margin: auto; }
+
+.greeting {
+  font-family: "bree", "helvetica", arial, sans-serif;
+  font-style: italic; }
+  .greeting .title {
+    font-size: 7.2rem; }
+  .greeting .subtitle {
+    font-size: 4.2rem;
+    color: #ce4dd6; }
+
+.css-entry {
+  text-align: right; }
+  .css-entry textarea {
+    font-family: "consolas", monospace;
+    resize: none;
+    width: 60rem;
+    margin: 2rem 0rem;
+    padding: 0rem;
+    height: 37.2rem;
+    border: none;
+    outline: none; }
+  .css-entry input[type=button] {
+    cursor: pointer;
+    border-radius: 0.3rem;
+    color: #58d64d;
+    background: none;
+    border: 1px solid #58d64d;
+    margin: 0;
+    padding: 0.2rem 0.3rem;
+    font-weight: 700;
+    font-size: 1.6rem; }
+    .css-entry input[type=button]:hover {
+      opacity: 0.8; }
+    .css-entry input[type=button]:active {
+      opacity: 0.9; }
+
+.css-container {
+  font-family: "consolas", monospace; }
+  .css-container .active-type {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2); }
+    .css-container .active-type:hover {
+      opacity: 0.8; }
+    .css-container .active-type:active {
+      opacity: 0.9; }
+  .css-container .active-type.highlighted {
+    background-color: rgba(0, 255, 0, 0.4); }

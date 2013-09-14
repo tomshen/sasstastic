@@ -1,0 +1,80 @@
+<html>
+<head>
+	<title>Sasstastic</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- typekit embed code -->
+	<script type="text/javascript" src="//use.typekit.net/mjf1xva.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<!-- end typekit embed code -->
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<div class="content-container">
+
+		<div class="greeting">
+			<div class="title">Sasstastic!</div>
+			<div class="subtitle">the super fantastic CSS sassifier</div>
+		</div>
+
+		<div class="css-entry">
+			<textarea placeholder="Enter your project's CSS..." autofocus></textarea>
+			<input type="button" value="Submit CSS">
+		</div>
+
+
+		<div class="css-editor" style="display: none">
+			<div class="instructions">
+				<div class="heading">Instructions</div>
+				<p>We'll highlight attributes in your CSS that might be related.</p>
+				<p>You name the variable and check our work, highlighting attributes that are related and unhighlighting ones that aren't.</p>
+				<p>Related attributes will have a green background. Attributes that could be related will have a grey background. Click the attribute to toggle its state.</p>
+			</div>
+			<div class="variable">
+				<div class='variable-name'>
+					<span class="variable-label">Variable name: </span>
+					<input id="variable-name-input" type="text" value="$temp">
+				</div>
+				<div class='variable-value'>
+					<span id="variable-name-label" class="variable-label">$temp = </span>
+					<input id="variable-value-input" type="text" value="12px">
+				</div>
+				<div class='variable-instances'>325 instances</div>
+
+			</div>
+
+			<div class="css-container"  style="display: none">
+				body {
+					font-size: 1.6rem;
+				}
+
+				.content-container {
+					max-width: 60rem;
+					margin: auto;
+				}
+
+
+				.greeting {
+					@include text-title;
+
+					.title {
+						font-size: <span class="length active-type">7.2rem</span>;
+					}
+
+					.subtitle {
+						font-size: <span class="length active-type highlighted">4.2rem</span>;
+						color: #ce4dd6;
+					}
+				}
+			</div>
+
+		</div>
+
+	<div>
+
+</body>
+</html>
