@@ -6,14 +6,15 @@ body {
   font-size: 1.6rem; }
 
 .content-container {
-  max-width: 60rem;
+  max-width: 62rem;
   margin: auto; }
 
 .greeting {
   font-family: "bree", "helvetica", arial, sans-serif;
   font-style: italic; }
   .greeting .title {
-    font-size: 7.2rem; }
+    margin-top: 1rem;
+    font-size: 10rem; }
   .greeting .subtitle {
     font-size: 4.2rem;
     color: #ce4dd6; }
@@ -23,7 +24,7 @@ body {
   .css-entry textarea {
     font-family: "consolas", monospace;
     resize: none;
-    width: 60rem;
+    width: 62rem;
     margin: 2rem 0rem;
     padding: 0rem;
     height: 37.2rem;

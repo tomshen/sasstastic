@@ -10,7 +10,9 @@
 	<!-- end typekit embed code -->
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.textarea.min.js"></script>
 	<script type="text/javascript" src="js/treeToHTML.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
 
 </head>
 <body>
@@ -18,12 +20,12 @@
 	<div class="content-container">
 
 		<div class="greeting">
-			<div class="title">Sasstastic!</div>
-			<div class="subtitle">the super fantastic CSS sassifier</div>
+			<div class="title">Sasstastic.</div>
+			<div class="subtitle">supremely fantastic CSS sassifier</div>
 		</div>
 
 		<div class="css-entry">
-			<textarea placeholder="Enter your project's CSS..." autofocus></textarea>
+			<textarea id="css-entry-textarea" placeholder="Enter your project's CSS..." autofocus></textarea>
 			<input type="button" value="Submit CSS">
 		</div>
 
@@ -48,29 +50,16 @@
 
 			</div>
 
-			<div class="css-container"  style="display: none">
-				body {
-					font-size: 1.6rem;
-				}
+			<div class="css-container">
 
-				.content-container {
-					max-width: 60rem;
-					margin: auto;
-				}
+<div class = 'selector'>.div1 {
+    margin:<span class = 'margin 1px px'>1px</span>;<br>
 
-
-				.greeting {
-					@include text-title;
-
-					.title {
-						font-size: <span class="length active-type">7.2rem</span>;
-					}
-
-					.subtitle {
-						font-size: <span class="length active-type highlighted">4.2rem</span>;
-						color: #ce4dd6;
-					}
-				}
+    <div class = 'selector'>.div2 {
+        margin:<span class = 'margin 1px px'>1px</span><span class = 'margin 2px px'>2px</span>;<br>
+        padding:<span class = 'padding 1px px'>1px</span><span class = 'padding 2px px'>2px</span>;<br>
+    }</div>
+}</div>
 			</div>
 
 		</div>

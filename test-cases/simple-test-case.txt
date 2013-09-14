@@ -28,5 +28,6 @@ HTML OUTPUT FROM TREE
 
     <div class = 'selector'>.div2 {
         margin:<span class = 'margin 1px px'>1px</span><span class = 'margin 2px px'>2px</span>;<br>
+        padding:<span class = 'padding 1px px'>1px</span><span class = 'padding 2px px'>2px</span>;<br>
     }</div>
 }</div>
