@@ -1,5 +1,23 @@
 ﻿var propertiesKey = "properties";
 var indentation = "    ";
+var frequentValues = {};
+
+// First pass: assume that everything has one value
+// Second pass: shorthand, with only one value of each type
+// Third pass: shorthand, with multiple values of any type
+function statsOnValues(property, values) {
+  if (frequentValues[property] === undefined) {
+    frequentValues[property] = {};
+  }
+
+  $.each(values, function(idx, value) {
+    if (frequentValues[property][value] === undefined) {
+      frequentValues[property][value] = 0;
+    }
+
+    frequentValues[property][value] += 1;
+  });
+}
 
 function typeOfValue(value) {
   if ($.inArray(value, colors) > 0) {
@@ -32,7 +50,8 @@ function leafToHTML(leaf) {
       newLine += " <span class = 'value " + property + " " + value + " " + typeOfValue(value) + "'>" + value + "</span>";
     });
 
-    result.push(newLine + ";<br>")
+    result.push(newLine + ";<br>");
+    statsOnValues(property, values);
   });
 
   return result;
