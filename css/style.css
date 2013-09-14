@@ -1,5 +1,9 @@
 html {
+  font-family: "helvetica", trebuchet, sans-serif;
   font-size: 62.5%; }
+
+body {
+  font-size: 1.6rem; }
 
 .content-container {
   max-width: 60rem;

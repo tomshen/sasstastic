@@ -18,11 +18,61 @@
 
 		<div class="greeting">
 			<div class="title">Sasstastic!</div>
-			<div class="subtitle">The super fantastic CSS sassifier</div>
+			<div class="subtitle">the super fantastic CSS sassifier</div>
 		</div>
 
-		<div class="css-entry"></div>
+		<div class="css-entry">
+			<p>Enter your css here</p>
+			<textarea></textarea>
+		</div>
 
+
+		<div class="css-editor">
+			<div class="instructions">
+				<div class="heading">Instructions</div>
+				<p>We'll highlight attributes in your CSS that might be related.</p>
+				<p>You name the variable and check our work, highlighting attributes that are related and unhighlighting ones that aren't.</p>
+				<p>Related attributes will have a green background. Attributes that could be related will have a grey background. Click the attribute to toggle its state.</p>
+			</div>
+			<div class="variable">
+				<div class='variable-name'>
+					<span class="variable-label">Variable name: </span>
+					<input id="variable-name-input" type="text" value="$temp">
+				</div>
+				<div class='variable-value'>
+					<span id="variable-name-label" class="variable-label">$temp = </span>
+					<input id="variable-value-input" type="text" value="12px">
+				</div>
+				<div class='variable-instances'>325 instances</div>
+				
+			</div>
+
+			<div class="css-container">
+				body {
+					font-size: 1.6rem;
+				}
+
+				.content-container {
+					max-width: 60rem;
+					margin: auto;
+				}
+
+
+				.greeting {
+					@include text-title;
+
+					.title {
+						font-size: 7.2rem;
+					}
+
+					.subtitle {
+						font-size: 4.2rem;
+						color: #ce4dd6;
+					}
+				}
+			</div>
+
+		</div>
 
 	<div>
 

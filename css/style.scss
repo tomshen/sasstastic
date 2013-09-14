@@ -1,12 +1,25 @@
-@mixin title-text {
+@mixin text-title {
 	font-family: "bree", "helvetica", arial, sans-serif;
 	font-style: italic;
 }
 
+@mixin text-mono {
+	font-family: "consolas", monospace;
+}
+
+@mixin text-body {
+	font-family: "helvetica", trebuchet, sans-serif;
+}
+
+
 html {
+	@include text-body;
 	font-size: 62.5%;
 }
 
+body {
+	font-size: 1.6rem;
+}
 
 .content-container {
 	max-width: 60rem;
@@ -15,7 +28,8 @@ html {
 
 
 .greeting {
-	@include title-text;
+	@include text-title;
+
 	.title {
 		font-size: 7.2rem;
 	}
@@ -25,3 +39,4 @@ html {
 		color: #ce4dd6;
 	}
 }
+
