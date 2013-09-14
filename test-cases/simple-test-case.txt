@@ -22,11 +22,11 @@ DESIRED TREE
     }
 }
 
+HTML OUTPUT FROM TREE
+<div class = 'selector'>.div1 {
+    margin:<span class = 'margin 1px px'>1px</span>;<br>
 
-.div1 {
-  margin: <span class = "margin numeric 1px">1px</span>;
-
-  .div2 {
-    margin: <span class = "margin numeric 1px">1px</span> <span class = "margin numeric 2px">2px</span>;
-  }
-}
+    <div class = 'selector'>.div2 {
+        margin:<span class = 'margin 1px px'>1px</span><span class = 'margin 2px px'>2px</span>;<br>
+    }</div>
+}</div>
