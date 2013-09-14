@@ -45,7 +45,7 @@ body {
 }
 
 .content-container {
-    max-width: 60rem;
+    max-width: 62rem;
     margin: auto;
 }
 
@@ -54,7 +54,8 @@ body {
     @include text-title;
 
     .title {
-        font-size: 7.2rem;
+        margin-top: 1rem;
+        font-size: 10rem;
     }
 
     .subtitle {
@@ -69,7 +70,7 @@ body {
         @include text-mono;
 
         resize: none;
-        width: 60rem;
+        width: 62rem;
         margin: 2rem 0rem;
         padding: 0rem;
         height: 37.2rem;
@@ -100,5 +101,22 @@ body {
 
     .active-type.highlighted {
         background-color: rgba(0, 255, 0, 0.4)
+    }
+
+
+    .selector-content {
+        margin-left: 2em;
+    }
+
+    .selector {
+        margin-top: 1em;
+    }
+
+    .selector-name {
+        color: green; 
+    }
+
+    .property-name {
+        color: teal;
     }
 }
