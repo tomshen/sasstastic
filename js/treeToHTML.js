@@ -27,9 +27,9 @@ function leafToHTML(leaf) {
   $.each(leaf, function(idx, line) {
     var values = line.substring(line.indexOf(":") + 1, line.indexOf(";")).match(/\S+/g);
     var property = line.substring(0, line.indexOf(":"));
-    var newLine = property + ":";
+    var newLine = "<span class = 'property-name'>" + property + "</span>:";
     $.each(values, function(idx, value) {
-      newLine += "<span class = '" + property + " " + value + " " + typeOfValue(value) + "'>" + value + "</span>";
+      newLine += "<span class = 'value " + property + " " + value + " " + typeOfValue(value) + "'>" + value + "</span>";
     });
 
     result.push(newLine + ";<br>")
@@ -45,7 +45,7 @@ function treeToHTMLHelper(selector, tree) {
 
   var treeKeys = Object.keys(tree).filter(function(key) { return key !== propertiesKey; });
   treeKeys.unshift(propertiesKey);
-  var result = ["<div class = 'selector'>" + selector + " {", indentation + "<div>"];
+  var result = ["<div class = 'selector'><span class = 'selector-name'>" + selector + "</span> {", indentation + "<div>"];
   $.each(treeKeys, function(idx, subtreeSelector) {
     if (subtreeSelector !== propertiesKey) {
       result.push("");
