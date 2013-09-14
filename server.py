@@ -1,3 +1,4 @@
+#!/usr/local/bin/python
 print "server initializing..."
 import SimpleHTTPServer
 import SocketServer
