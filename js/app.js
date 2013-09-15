@@ -20,18 +20,6 @@ $(document).ready(function() {
     console.log(name);
   })
 
-  $("#variable-skip").click(function(){
-    $("#variable-name-display").text("$temp");
-    $("#variable-name-input").val("");
-
-    var newVal = skipValue($("#variable-value-display").text());
-    if(newVal !== undefined) {
-      $("#variable-value-display").text(newVal);
-    }
-    else {
-      $("#new-variable-container").text("all variables exhausted!");
-    }
-  })
 
   $("#variable-apply").click(function(){
     name = getVariableName();
@@ -56,6 +44,18 @@ $(document).ready(function() {
     }
   })
 
+  $("#variable-skip").click(function(){
+    $("#variable-name-display").text("$temp");
+    $("#variable-name-input").val("");
+
+    var newVal = skipValue($("#variable-value-display").text());
+    if(newVal !== undefined) {
+      $("#variable-value-display").text(newVal);
+    }
+    else {
+      $("#new-variable-container").text("all variables exhausted!");
+    }
+  })
 
   //Hide everything, and then show the first box
   hideEverythingImmediately();

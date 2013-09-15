@@ -28,12 +28,41 @@ function valueToVariable(value, variableName) {
   return nextValue();
 }
 
+function getUnits(value) {
+  validUnits = ["px", "em", "%", "rem"];
+  if(value == "") {
+    return "";
+  }
+  value = value.toLowerCase();
+  var type = "";
+  for (var i = 0; i < value.length; i++) {
+    if(value[i].search(/[a-z]/) !== -1) {
+      type = type + value[i];
+    }
+  }
+
+  if(_.findIndex(validUnits, type)) {
+    return type;
+  }
+  else {
+    return "";
+  }
+}
+
 function highlightAllOfValue(value) {
   $("." + value).addClass("active-type").addClass("highlighted");
-}
+  var units = getUnits(value);
+  console.log("highlighting" + units)
+  if(units) {
+    $("." + units).addClass("active-type");
+  }}
 
 function unhighlightAllOfValue(value) {
   $("." + value).removeClass("active-type").removeClass("highlighted");
+  var units = getUnits(value);
+  if(units) {
+    $("." + units).removeClass("active-type".removeClass("highlighted"));
+  }
 }
 
 var valuesQueue = [];
