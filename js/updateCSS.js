@@ -30,10 +30,25 @@ function highLightAllOfValue(value) {
   $("." + value).addClass("active-type").addClass("highlighted");
 }
 
+function unHighLightAllOfValue(value) {
+  $("." + value).removeClass("active-type").removeClass("highlighted");
+}
+
+var valuesQueue = [];
+
 function nextValue() {
+  if (!(valuesQueue.length > 0)) {
+    valuesQueue = Object.keys(valueStats).sort(function(a,b) {
+      return valueStats[b] - valueStats[a];
+    });
+  }
+  var val = valuesQueue.shift();
+  highLightAllOfValue(val);
+  return val;
 }
 
 function skipValue(value) {
+  unHighLightAllOfValue(value);
   delete valueStats[value];
   return nextValue();
 }
