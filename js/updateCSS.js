@@ -24,14 +24,15 @@ function valueToVariable(value, variableName) {
   if (valueStats[value] === 0) {
     delete valueStats[value];
   }
+
   return nextValue();
 }
 
-function highLightAllOfValue(value) {
+function highlightAllOfValue(value) {
   $("." + value).addClass("active-type").addClass("highlighted");
 }
 
-function unHighLightAllOfValue(value) {
+function unhighlightAllOfValue(value) {
   $("." + value).removeClass("active-type").removeClass("highlighted");
 }
 
@@ -44,12 +45,12 @@ function nextValue() {
     });
   }
   var val = valuesQueue.shift();
-  highLightAllOfValue(val);
+  highlightAllOfValue(val);
   return val;
 }
 
 function skipValue(value) {
-  unHighLightAllOfValue(value);
+  unhighlightAllOfValue(value);
   delete valueStats[value];
   return nextValue();
 }

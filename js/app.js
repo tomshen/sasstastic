@@ -20,6 +20,18 @@ $(document).ready(function() {
     console.log(name);
   })
 
+  $("#variable-skip").click(function(){
+    skipValue($("#variable-value-display").text());
+  })
+
+  $("#variable-apply").click(function(){
+    name = getVariableName();
+    console.log(name);
+    if(name !== "false" && name) {
+      valueToVariable($("#variable-value-display").text(), name);
+    }
+  })
+
 
   //Hide everything, and then show the first box
   hideEverythingImmediately();
@@ -32,6 +44,10 @@ $(document).ready(function() {
     treeHTML = treeToHTML(tree);
 
     $(".css-container").html(treeHTML);
+    newValue = nextValue();
+
+    $("#variable-value-display").text(newValue);
+
     showEditor();
   });
 
