@@ -6,9 +6,6 @@ function colorToRGBA(color) {
   var r, g, b, a;
   color = color.trim().toLowerCase();
 
-  if (color.indexOf('rgba') === 0)
-    return color;
-
   if (color[0] === '#') {
     r = parseInt(color.slice(1, 3), 16);
     g = parseInt(color.slice(3, 5), 16);
@@ -21,7 +18,9 @@ function colorToRGBA(color) {
     r = parseInt(values[0].trim(), 10);
     g = parseInt(values[1].trim(), 10);
     b = parseInt(values[2].trim(), 10);
-    a = 1.0;
+    if (values.length === 4)
+      a = parseInt(values[3].trim(), 10);
+    else a = 1.0;
   } else {
     return null;
   }
