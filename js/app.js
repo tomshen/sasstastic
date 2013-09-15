@@ -27,7 +27,7 @@ $(document).ready(function() {
     console.log(name);
     if(name !== "false" && name) {
       $("#variables-container").append("<div class='variable selector'>" + 
-                                  "<span class='variable-name'>" +  
+                                  "\n<span class='variable-name'>" +  
                                     name +
                                   "</span>" +
                                   ": " + value + ";" + 
