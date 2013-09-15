@@ -23,7 +23,8 @@ body {
 
 .submit {
   cursor: pointer;
-  color: #58d64d; }
+  color: #58d64d;
+  text-align: right; }
   .submit:hover {
     opacity: 0.8; }
   .submit:active {
@@ -70,6 +71,8 @@ body {
 .variable-editor {
   position: relative;
   margin: 1.6rem 0rem; }
+  .variable-editor #variable-name-input {
+    color: #f1a22b; }
   .variable-editor .variable-label, .variable-editor .variable-name input {
     font-weight: bold; }
   .variable-editor .variable-name input {
