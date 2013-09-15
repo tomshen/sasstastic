@@ -26,5 +26,7 @@ function getVariableName() {
     makeError("Enter variable name")
     return false;
   }
+
+  $("#variable-name-display").text(name);
   return name;
 }

@@ -9,6 +9,17 @@ body {
   max-width: 62rem;
   margin: auto; }
 
+.button {
+  cursor: pointer;
+  color: #58d64d; }
+  .button:hover {
+    opacity: 0.8; }
+  .button:active {
+    opacity: 0.9; }
+
+.button.skip {
+  color: #d6584d; }
+
 .title {
   font-family: "bree", "helvetica", arial, sans-serif;
   font-style: italic;
@@ -78,9 +89,11 @@ body {
   .variable-editor .variable-name input {
     border: none;
     outline: none; }
+  .variable-editor #variable-name-display {
+    color: #f1a22b; }
   .variable-editor .error {
-    color: #D6584D;
-    border-left: 2px solid #D6584D;
+    color: #d6584d;
+    border-left: 2px solid #d6584d;
     margin: 0.8rem 0;
     padding: 0.8rem;
     font-weight: bold; }

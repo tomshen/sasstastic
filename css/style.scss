@@ -1,6 +1,8 @@
 
 $submit-color: #58D64D;
 $variable-color: #F1A22B;
+$error-color: #D6584D;
+$instructions-color: #4D73D6; 
 
 @mixin text-title {
     font-family: "bree", "helvetica", arial, sans-serif;
@@ -50,6 +52,14 @@ body {
     margin: auto;
 }
 
+.button {
+    @include button;
+    color: $submit-color;
+}
+
+.button.skip {
+    color: $error-color;
+}
 
 .title {
     @include text-title;
@@ -126,17 +136,19 @@ body {
         outline: none;
     }
 
+    #variable-name-display {
+        color: $variable-color;
+    }
+
     .error {
-        color: #D6584D;
-        border-left: 2px solid #D6584D;
+        color: $error-color;
+        border-left: 2px solid $error-color;
         margin: 0.8rem 0;
         padding: 0.8rem;
         font-weight: bold;
     }
 
     .instructions{
-
-        $instructions-color: #4D73D6; 
         position: absolute;
         right: 0;
         top: 0;
