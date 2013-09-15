@@ -76,8 +76,8 @@ body {
     border: none;
     outline: none; }
   .variable-editor .error {
-    color: red;
-    border-left: 2px solid red;
+    color: #D6584D;
+    border-left: 2px solid #D6584D;
     margin: 0.8rem 0;
     padding: 0.8rem;
     font-weight: bold; }
