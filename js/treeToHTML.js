@@ -12,6 +12,7 @@ function updatePropertyValueStats(property, values) {
   $.each(values, function(idx, value) {
     if (typeOfValue(value) !== "variable") { 
       if (typeOfValue(value) === "color") {
+
         value = colorToRGBA(value);
       }
       if (propertyValueStats[property][value] === undefined) {
@@ -35,7 +36,18 @@ function leafToHTML(leaf) {
 
   $.each(leaf, function(idx, line) {
     if (line.indexOf(":") > -1) {
+      var colors = line.match(/rgba?\([^\(]*\)/g);
+      if (!colors) {
+        colors = [];
+      }
+      line = line.replace(/rgba?\([^\(]*\)/g, '');
       var values = line.substring(line.indexOf(":") + 1, line.indexOf(";")).match(/\S+/g);
+      if (!values) {
+        values = colors;
+      } else {
+        $.merge(values, colors);
+      }
+
       var property = line.substring(0, line.indexOf(":"));
       var newLine = "<span class = 'property-name'>" + property + "</span>:";
       $.each(values, function(idx, value) {
@@ -43,7 +55,7 @@ function leafToHTML(leaf) {
         if (type === "color") {
           value = colorToRGBA(value);
         }
-        newLine += " <span class = 'value " + property + " " + value.replace(/[\)\(]/g,'') + " " + type + "'>" + value + "</span>";
+        newLine += " <span class = 'value " + property + " " + (value === null ? "" : value.replace(/[\)\(]/g,'')) + " " + type + "'>" + value + "</span>";
       });
 
       result.push(newLine + ";<br>");
