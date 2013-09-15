@@ -150,3 +150,7 @@ body {
     color: green; }
   .css-container .property-name {
     color: teal; }
+  .css-container .mixin-name {
+    color: #ec21bb; }
+  .css-container .variable-name {
+    color: #f1a22b; }

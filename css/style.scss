@@ -3,6 +3,7 @@ $submit-color: #58D64D;
 $variable-color: #F1A22B;
 $error-color: #D6584D;
 $instructions-color: #4D73D6; 
+$mixin-color: #EC21BB; 
 
 @mixin text-title {
     font-family: "bree", "helvetica", arial, sans-serif;
@@ -225,5 +226,13 @@ body {
 
     .property-name {
         color: teal;
+    }
+
+    .mixin-name {
+        color: $mixin-color;
+    }
+
+    .variable-name {
+        color: $variable-color;
     }
 }
