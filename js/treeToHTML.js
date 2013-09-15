@@ -115,7 +115,7 @@ function variablesToHTML(variables) {
     return "";
   }
   var html = "<div class = 'selector'>" + variablesKey + " {";
-  html += "\n<div class = 'selector-content'";
+  html += "\n<div class = 'selector-content'>";
   $.each(variables, function(property, value) {
     html += indentation + property + ": " + value + ";";
   });
