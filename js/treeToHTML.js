@@ -89,7 +89,10 @@ function treeToHTMLHelper(selector, tree) {
 }
 
 function mixinsToHTML(mixins) {
-  return "";
+  $.each(mixins, function(selector, subtree) {
+    html += mixinsKey + " " + treeToHTMLHelper(selector, subtree).join("\n");
+    html += "\n\n";
+  });
 }
 
 function variablesToHTML(variables) {
