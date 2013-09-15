@@ -1,5 +1,5 @@
 ﻿function sanitizeValue(value) {
-  value = value.replace(/\./g,'\\\\.');
+  value = value.replace(/\./g,'\\\\.')
                .replace(/\%/g,'\\\\%');
 }
 
