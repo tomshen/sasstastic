@@ -26,9 +26,24 @@ $(document).ready(function() {
 
   $("#variable-apply").click(function(){
     name = getVariableName();
+    value = $("#variable-value-display").text();
     console.log(name);
     if(name !== "false" && name) {
-      valueToVariable($("#variable-value-display").text(), name);
+      $("#variable-name-input").empty();
+      $("#variables-container").append("<div class='variable selector'>" + 
+                                  "<span class='variable-name'>" +  
+                                    name +
+                                  "</span>" +
+                                  ": " + value + ";" + 
+                                  "</div>")
+      var newInstance = valueToVariable($("#variable-value-display").text(), name)
+      if(newInstance) {
+        $("#variable-name-display").text("$temp");
+        $("#variable-value-display").text(newInstance);
+      }
+      else {
+        $("#new-variable-container").text("all variables exhausted!");
+      }
     }
   })
 
@@ -43,7 +58,7 @@ $(document).ready(function() {
     tree = parseSCSS($('#css-entry-textarea').val());
     treeHTML = treeToHTML(tree);
 
-    $(".css-container").html(treeHTML);
+    $(".css-container").append(treeHTML);
     newValue = nextValue();
 
     $("#variable-value-display").text(newValue);
