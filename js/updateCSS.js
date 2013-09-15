@@ -20,9 +20,7 @@ $(document).ready(function() {
 function valueToVariable(value, variableName) {
   var highlighted = $(".active-type.highlighted");
   highlighted
-    .removeClass(sanitizeValue(value))
-    .removeClass("highlighted")
-    .addClass("variable")
+    .attr("class", "variable")
     .text(variableName);
   $(".active-type").removeClass("active-type");
   valueStats[value] -= highlighted.size();
@@ -41,9 +39,7 @@ function valueOfTypeToVariable(value, variableName) {
   $.each(highlighted, function(idx, occurance) {
     var currentValue = $(occurance).text();
     $(occurance)
-      .removeClass(sanitizeValue(currentValue))
-      .removeClass("highlighted")
-      .addClass("variable")
+      .attr("class", "variable")
       .text(getMultiplier(value, currentValue) + "*" + variableName);
     valueStats[currentValue] -= 1;
     if (valueStats[currentValue] === 0) {
