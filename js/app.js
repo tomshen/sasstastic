@@ -21,7 +21,16 @@ $(document).ready(function() {
   })
 
   $("#variable-skip").click(function(){
-    skipValue($("#variable-value-display").text());
+    $("#variable-name-display").text("$temp");
+    $("#variable-name-input").val("");
+
+    var newVal = skipValue($("#variable-value-display").text());
+    if(newVal !== undefined) {
+      $("#variable-value-display").text(newVal);
+    }
+    else {
+      $("#new-variable-container").text("all variables exhausted!");
+    }
   })
 
   $("#variable-apply").click(function(){
@@ -38,7 +47,7 @@ $(document).ready(function() {
       var newInstance = valueToVariable($("#variable-value-display").text(), name)
       if(newInstance) {
         $("#variable-name-display").text("$temp");
-        $("#variable-name-input").empty();
+        $("#variable-name-input").val("");
         $("#variable-value-display").text(newInstance);
       }
       else {
