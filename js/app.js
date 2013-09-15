@@ -32,7 +32,7 @@ $(document).ready(function() {
                                   "</span>" +
                                   ": " + value + ";" + 
                                   "</div>")
-      var newInstance = valueToVariable($("#variable-value-display").text(), name)
+      var newInstance = valueOfTypeToVariable($("#variable-value-display").text(), name)
       if(newInstance) {
         $("#variable-name-display").text("$temp");
         $("#variable-name-input").val("");

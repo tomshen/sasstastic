@@ -1,5 +1,6 @@
 ﻿function sanitizeValue(value) {
   return value.replace(/\./g,'\\.')
+              .replace(/\#/g,'\\#')
               .replace(/\%/g,'\\%');
 }
 
@@ -38,9 +39,10 @@ function valueOfTypeToVariable(value, variableName) {
   var changed = 0;
   $.each(highlighted, function(idx, occurance) {
     var currentValue = $(occurance).text();
+    var multiplier = getMultiplier(value, currentValue);
     $(occurance)
       .attr("class", "variable")
-      .text(getMultiplier(value, currentValue) + "*" + variableName);
+      .text((multiplier === 1? "" : multiplier + "*") + variableName);
     valueStats[currentValue] -= 1;
     if (valueStats[currentValue] === 0) {
       delete valueStats[currentValue];
@@ -62,7 +64,6 @@ function unHighLightAllOfValue(value) {
 
 function highLightAllOfType(value) {
   $("." + typeOfValue(value)).addClass("active-type").addClass("highlighted");
-  unHighLightAllOfValue(value);
 }
 
 function unHighLightAllOfType(value) {
@@ -72,18 +73,25 @@ function unHighLightAllOfType(value) {
 var valuesQueue = [];
 
 function nextValue() {
+  if ($.isEmptyObject(valueStats)) {
+    return undefined;
+  }
+
   if (!(valuesQueue.length > 0)) {
     valuesQueue = Object.keys(valueStats).sort(function(a,b) {
       return valueStats[b] - valueStats[a];
     });
   }
   var val = valuesQueue.shift();
-  highLightAllOfValue(val);
+  if (valueStats[val] === undefined) {
+    val = nextValue();
+  }
+  highLightAllOfType(val);
   return val;
 }
 
 function skipValue(value) {
-  unHighLightAllOfValue(value);
+  unHighLightAllOfType(value);
   delete valueStats[value];
   return nextValue();
 }
