@@ -16,10 +16,14 @@ function colorToRGBA(color) {
     a = 1.0;
   } else if (color.indexOf('rgb') === 0) {
     var values = color.slice(color.indexOf('(') + 1, color.indexOf(')')).split(',');
+    if (values.length !== 3)
+      return null;
     r = parseInt(values[0].trim(), 10);
     g = parseInt(values[1].trim(), 10);
     b = parseInt(values[2].trim(), 10);
     a = 1.0;
+  } else {
+    return null;
   }
   return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
 }
