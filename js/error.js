@@ -12,13 +12,15 @@ function makeError(err) {
 
 function getVariableName() {
   var name = $("#variable-name-input").val();
+
   hideError();
+
   if(name[0] !== "$") {
     makeError("Variable names must start with the dollar sign ($)");
     return false;
   }
 
-  if(name.search(/[^\$\-\_\sa-zA-Z  ]/) !== -1) {
+  if(name.search(/[^\$\-\_\sa-zA-Z0-9]/) !== -1) {
     makeError("Variable names must not contain invalid characters")
     return false;
   }
@@ -26,7 +28,8 @@ function getVariableName() {
     makeError("Enter variable name")
     return false;
   }
-
-  $("#variable-name-display").text(name);
+  if(name) {
+    $("#variable-name-display").text(name);
+  }
   return name;
 }
