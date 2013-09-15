@@ -1,6 +1,9 @@
 # Sasstastic.
-**Sasstastic** is a supremely fantastic CSS sassifier.
+**Sasstastic** is a supremely fantastic CSS sassifier. 
 
+Won Best Design at [HackCMU 2013](http://www.hackcmu.com).
+
+## Description
 Sasstastic takes in repetitive CSS like this:
 ```CSS
 html {
