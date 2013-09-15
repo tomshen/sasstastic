@@ -4,7 +4,9 @@ $(document).ready(function() {
 
 
 	$('#instructions-content').slideUp(0);
+
 	$('#instructions-toggle').click(function() {
+		$('#instructions-toggle').toggleClass("extended")
 		$('#instructions-content').slideToggle();
 	})
 });

@@ -9,15 +9,25 @@ body {
   max-width: 62rem;
   margin: auto; }
 
-.greeting {
+.title {
   font-family: "bree", "helvetica", arial, sans-serif;
-  font-style: italic; }
-  .greeting .title {
-    margin-top: 1rem;
-    font-size: 10rem; }
-  .greeting .subtitle {
-    font-size: 4.2rem;
-    color: #ce4dd6; }
+  font-style: italic;
+  margin-top: 1rem;
+  font-size: 10rem; }
+
+.subtitle {
+  font-family: "bree", "helvetica", arial, sans-serif;
+  font-style: italic;
+  font-size: 4.2rem;
+  color: #ce4dd6; }
+
+.submit {
+  cursor: pointer;
+  color: #58d64d; }
+  .submit:hover {
+    opacity: 0.8; }
+  .submit:active {
+    opacity: 0.9; }
 
 .css-entry {
   text-align: right; }
@@ -44,6 +54,64 @@ body {
       opacity: 0.8; }
     .css-entry input[type=button]:active {
       opacity: 0.9; }
+
+.css-output {
+  text-align: right; }
+  .css-output textarea {
+    font-family: "consolas", monospace;
+    resize: none;
+    width: 62rem;
+    margin: 2rem 0rem;
+    padding: 0rem;
+    height: 37.2rem;
+    border: none;
+    outline: none; }
+
+.variable-editor {
+  position: relative;
+  margin: 1.6rem 0rem; }
+  .variable-editor .variable-label, .variable-editor .variable-name input {
+    font-weight: bold; }
+  .variable-editor .variable-name input {
+    border: none;
+    outline: none; }
+  .variable-editor .error {
+    color: red;
+    border-left: 2px solid red;
+    margin: 0.8rem 0;
+    padding: 0.8rem; }
+  .variable-editor .instructions {
+    position: absolute;
+    right: 0;
+    top: 0; }
+    .variable-editor .instructions .heading {
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+      top: 0;
+      float: right;
+      color: #237bdb;
+      padding: 0.2rem 0.3rem; }
+    .variable-editor .instructions .heading:hover, .variable-editor .instructions .heading.extended {
+      background-color: #237bdb;
+      color: white;
+      border-radius: 0.3rem; }
+    .variable-editor .instructions .heading.extended {
+      border-bottom-right-radius: 0rem;
+      border-bottom-left-radius: 0rem; }
+    .variable-editor .instructions #instructions-content {
+      position: absolute;
+      right: 0;
+      top: 1.4em;
+      width: 20rem;
+      background-color: #237bdb;
+      color: white;
+      border-radius: 0.3rem;
+      padding: 1rem 1rem; }
+      .variable-editor .instructions #instructions-content p {
+        margin-top: 0; }
+      .variable-editor .instructions #instructions-content p:last-of-type {
+        margin-bottom: 0; }
 
 .css-container {
   font-family: "consolas", monospace; }

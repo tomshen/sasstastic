@@ -24,24 +24,24 @@
 			<div class="subtitle">supremely fantastic CSS sassifier</div>
 		</div>
 
-		<div class="css-entry">
+		<div class="css-entry" >
 			<textarea id="css-entry-textarea" placeholder="Enter your project's CSS..." autofocus></textarea>
-			<input type="button" value="Submit CSS">
+			<div class="subtitle submit">Submit your CSS</div>
 		</div>
 
 
-		<div class="css-editor">
-			<div class="variable">
+		<div class="css-editor" style="display:none">
+
+			<div class="variable-editor">
+
 				<div class='variable-name'>
 					<span class="variable-label">Variable name: </span>
-					<input id="variable-name-input" type="text" value="$temp">
+					<input id="variable-name-input" type="text" placeholder="$temp">
+					<div class="error" id="variable-name-errors">Variable name needs to start with a dollar sign ($)</div>
 				</div>
-				<div class='variable-value'>
-					<span id="variable-name-label" class="variable-label">$temp = </span>
-					<input id="variable-value-input" type="text" value="12px">
-				</div>
-				<div class='variable-instances'>325 instances</div>
-				<div class="instructions">
+
+
+				<div class="instructions" id='instructions-container'>
 					<div class="heading" id="instructions-toggle">Instructions</div>
 					<div id="instructions-content">
 						<p>We'll highlight attributes in your CSS that might be related.</p>
@@ -52,21 +52,28 @@
 				</div>
 			</div>
 
+
+
 			<div class="css-container">
+				<div class = 'selector'><span class = 'selector-name'>.div1</span> {
+				    <div class = 'selector-content'>
+				    <span class = 'property-name '>margin</span>:<span class = 'value margin 1px px active-type highlighted'>1px</span>;<br>
 
-<div class = 'selector'> <span class="selector-name">.div1</span> {
-    	<div class="selector-content">
-    <span class="property-name">margin:</span><span class = 'value margin 1px px'>1px</span>;<br>
+				    <div class = 'selector'><span class = 'selector-name'>.div2</span> {
+				        <div class = 'selector-content'>
+				        <span class = 'property-name'>margin</span>:<span class = 'value margin 1px px active-type'>1px</span><span class = 'value margin 2px px'>2px</span>;<br>
+				        </div>
+				    }</div>
+				    </div>
+				}</div>
 
-    <div class = 'selector'><span class="selector-name">.div2</span> {
-    	<div class="selector-content">
-	        <span class="property-name">margin:</span><span class = 'value margin 1px px'>1px</span><span class = 'value margin 2px px'>2px</span>;<br>
-	        <span class="property-name">padding:</span><span class = 'value padding 1px px'>1px</span><span class = 'value padding 2px px'>2px</span>;<br>
-	    </div>
-    }</div>
-</div>}</div>
 			</div>
 
+		</div>
+
+		<div class="css-output"style="display:none">
+			<textarea id="css-output-textarea" autofocus></textarea>
+			<div class="subtitle">enjoy your Sass </div>
 		</div>
 
 	<div>

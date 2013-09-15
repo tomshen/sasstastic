@@ -50,18 +50,21 @@ body {
 }
 
 
-.greeting {
+.title {
     @include text-title;
+    margin-top: 1rem;
+    font-size: 10rem;
+}
 
-    .title {
-        margin-top: 1rem;
-        font-size: 10rem;
-    }
+.subtitle {
+    @include text-title;
+    font-size: 4.2rem;
+    color: #ce4dd6;
+}
 
-    .subtitle {
-        font-size: 4.2rem;
-        color: #ce4dd6;
-    }
+.submit {
+    @include button;
+    color: $submit-color;
 }
 
 .css-entry {
@@ -88,6 +91,92 @@ body {
         padding: 0.2rem 0.3rem;
         font-weight: 700;
         font-size: 1.6rem;
+    }
+}
+
+.css-output {
+    text-align: right;
+    textarea {
+        @include text-mono;
+
+        resize: none;
+        width: 62rem;
+        margin: 2rem 0rem;
+        padding: 0rem;
+        height: 37.2rem;
+        border: none;
+        outline: none;
+    }
+}
+
+.variable-editor {
+    position: relative;
+    margin: 1.6rem 0rem;
+
+
+    .variable-label, .variable-name input {
+        font-weight: bold;
+    }
+    .variable-name input {
+        border: none;
+        outline: none;
+    }
+
+    .error {
+        color: red;
+        border-left: 2px solid red;
+        margin: 0.8rem 0;
+        padding: 0.8rem;
+    }
+
+    .instructions{
+
+        $instructions-color: #237bdb; 
+        position: absolute;
+        right: 0;
+        top: 0;
+
+
+        .heading {
+            cursor: pointer;
+            position: absolute;
+            right: 0; 
+            top: 0;  
+            float: right;
+            color:  $instructions-color;
+            padding: 0.2rem 0.3rem;
+        } 
+
+        .heading:hover, .heading.extended{
+            background-color: $instructions-color;
+            color: white;
+            border-radius: 0.3rem;
+        }
+
+        .heading.extended {
+            border-bottom-right-radius: 0rem;
+            border-bottom-left-radius: 0rem;
+        }
+
+        #instructions-content {
+            position: absolute;
+            right: 0;
+            top: 1.4em;
+            width: 20rem;
+            background-color:  $instructions-color;
+            color: white;
+
+            border-radius: 0.3rem;
+            padding: 1rem 1rem;
+
+            p {
+                margin-top: 0;  
+            }
+
+            p:last-of-type {
+                margin-bottom: 0;  
+            }
+        }
     }
 }
 
