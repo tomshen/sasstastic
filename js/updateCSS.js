@@ -1,4 +1,9 @@
-﻿$(document).ready(function() {
+﻿function sanitizeValue(value) {
+  return value.replace(/\./g,'\\\\.')
+               .replace(/\%/g,'\\\\%');
+}
+
+$(document).ready(function() {
   $(document).delegate(".active-type", "click", function() {
     var highlighted = "highlighted";
     if ($(this).hasClass(highlighted)) {
@@ -15,7 +20,7 @@
 function valueToVariable(value, variableName) {
   var highlighted = $(".active-type.highlighted");
   highlighted
-    .removeClass(value)
+    .removeClass(sanitizeValue(value))
     .removeClass("highlighted")
     .addClass("variable")
     .text(variableName);
@@ -28,41 +33,20 @@ function valueToVariable(value, variableName) {
   return nextValue();
 }
 
-function getUnits(value) {
-  validUnits = ["px", "em", "%", "rem"];
-  if(value == "") {
-    return "";
-  }
-  value = value.toLowerCase();
-  var type = "";
-  for (var i = 0; i < value.length; i++) {
-    if(value[i].search(/[a-z]/) !== -1) {
-      type = type + value[i];
-    }
-  }
-
-  if(_.findIndex(validUnits, type)) {
-    return type;
-  }
-  else {
-    return "";
-  }
+function highLightAllOfValue(value) {
+  $("." + sanitizeValue(value)).addClass("active-type").addClass("highlighted");
 }
 
-function highlightAllOfValue(value) {
-  $("." + value).addClass("active-type").addClass("highlighted");
-  var units = getUnits(value);
-  console.log("highlighting" + units)
-  if(units) {
-    $("." + units).addClass("active-type");
-  }}
+function unHighLightAllOfValue(value) {
+  $("." + sanitizeValue(value)).removeClass("active-type").removeClass("highlighted");
+}
 
-function unhighlightAllOfValue(value) {
-  $("." + value).removeClass("active-type").removeClass("highlighted");
-  var units = getUnits(value);
-  if(units) {
-    $("." + units).removeClass("active-type".removeClass("highlighted"));
-  }
+function highLightAllOfType(value) {
+  $("." + typeOfValue(value)).addClass("active-type").addClass("highlighted");
+}
+
+function unHighLightAllOfType(value) {
+  $("." + typeOfValue(value)).removeClass("active-type").removeClass("highlighted");
 }
 
 var valuesQueue = [];
@@ -74,12 +58,12 @@ function nextValue() {
     });
   }
   var val = valuesQueue.shift();
-  highlightAllOfValue(val);
+  highLightAllOfValue(val);
   return val;
 }
 
 function skipValue(value) {
-  unhighlightAllOfValue(value);
+  unHighLightAllOfValue(value);
   delete valueStats[value];
   return nextValue();
 }
