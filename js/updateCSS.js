@@ -42,7 +42,7 @@ function valueOfTypeToVariable(value, variableName) {
     var multiplier = getMultiplier(value, currentValue);
     $(occurance)
       .attr("class", "variable")
-      .text((multiplier === 1? "" : multiplier + "*") + variableName);
+      .text((!$.isNumeric(multiplier) || multiplier === 1? "" : multiplier + "*") + variableName);
     valueStats[currentValue] -= 1;
     if (valueStats[currentValue] === 0) {
       delete valueStats[currentValue];
