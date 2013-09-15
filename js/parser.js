@@ -1,6 +1,10 @@
 function parseSCSS (css) {
   // We pretend @* CSS selectors don't exist.
 
+  function removeComments(cssWithComments) {
+    return cssWithComments.replace(/\/\*[^*]*\*+([^/*][^*]*\*+)*\//g, '');
+  }
+
   function getNode(currNode, selectors) {
     if(selectors.length === 0)
       return currNode;
@@ -29,7 +33,7 @@ function parseSCSS (css) {
   }
 
   var tree = { '@mixin': [], 'variables': [] };
-  css = css.trim();
+  css = removeComments(css.trim());
 
   var i = 0;
   while(i < css.length) {
