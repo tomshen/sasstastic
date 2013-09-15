@@ -108,11 +108,13 @@ function variablesToHTML(variables) {
   if (variables === undefined) {
     return "";
   }
-  var html = variablesKey + " {";
+  var html = variablesKey + " <div class = 'selector'>{";
+  html += "\n<div class = 'selector-content'";
   $.each(variables, function(property, value) {
     html += indentation + property + ": " + value + ";";
   });
-  return html + "\n}";
+  html += "\n</div>";
+  return html + "\n}</div>";
 }
 
 var mixinsKey = "@mixin";
