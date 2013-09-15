@@ -1,5 +1,28 @@
 ﻿var propertiesKey = "properties";
 var indentation = "    ";
+var propertyValueStats = {};
+var valueStats = {};
+
+
+function updatePropertyValueStats(property, values) {
+  if (propertyValueStats[property] === undefined) {
+    propertyValueStats[property] = {};
+  }
+
+  $.each(values, function(idx, value) {
+    if (propertyValueStats[property][value] === undefined) {
+      propertyValueStats[property][value] = 0;
+    }
+
+    propertyValueStats[property][value] += 1;
+
+    if (valueStats[value] === undefined) {
+      valueStats[value] = 0;
+    }
+
+    valueStats[value] += 1;
+  });
+}
 
 function typeOfValue(value) {
   if ($.inArray(value, colors) > 0) {
@@ -29,10 +52,11 @@ function leafToHTML(leaf) {
     var property = line.substring(0, line.indexOf(":"));
     var newLine = "<span class = 'property-name'>" + property + "</span>:";
     $.each(values, function(idx, value) {
-      newLine += "<span class = 'value " + property + " " + value + " " + typeOfValue(value) + "'>" + value + "</span>";
+      newLine += " <span class = 'value " + property + " " + value + " " + typeOfValue(value) + "'>" + value + "</span>";
     });
 
-    result.push(newLine + ";<br>")
+    result.push(newLine + ";<br>");
+    updatePropertyValueStats(property, values);
   });
 
   return result;
