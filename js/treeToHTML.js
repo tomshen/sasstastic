@@ -93,7 +93,7 @@ function treeToHTMLHelper(selector, tree) {
 }
 
 function mixinsToHTML(mixins) {
-  var html "";
+  var html = "";
   $.each(mixins, function(selector, subtree) {
     html += treeToHTMLHelper(mixinsKey + " " + selector, subtree).join("\n");
     html += "\n\n";
