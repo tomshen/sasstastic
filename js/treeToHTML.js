@@ -88,8 +88,24 @@ function treeToHTMLHelper(selector, tree) {
   return result;
 }
 
+function mixinsToHTML(mixins) {
+  return "";
+}
+
+function variablesToHTML(variables) {
+  return "";
+}
+
+var mixinsKey = "@mixin";
+var variablesKey = "variables";
+
 function treeToHTML(tree) {
   var html = "";
+  html += mixinsToHTML(tree[mixinsKey]);
+  html += variablesToHTML(tree[variablesKey]);
+  delete tree[mixinsKey];
+  delete tree[variablesKey];
+
   $.each(tree, function(idx, val) {
     html += treeToHTMLHelper(idx, val).join("\n");
     html += "\n\n";
