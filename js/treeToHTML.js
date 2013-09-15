@@ -48,15 +48,19 @@ function leafToHTML(leaf) {
   var result = [];
 
   $.each(leaf, function(idx, line) {
-    var values = line.substring(line.indexOf(":") + 1, line.indexOf(";")).match(/\S+/g);
-    var property = line.substring(0, line.indexOf(":"));
-    var newLine = "<span class = 'property-name'>" + property + "</span>:";
-    $.each(values, function(idx, value) {
-      newLine += " <span class = 'value " + property + " " + value + " " + typeOfValue(value) + "'>" + value + "</span>";
-    });
+    if (line.indexOf(":") > -1) {
+      var values = line.substring(line.indexOf(":") + 1, line.indexOf(";")).match(/\S+/g);
+      var property = line.substring(0, line.indexOf(":"));
+      var newLine = "<span class = 'property-name'>" + property + "</span>:";
+      $.each(values, function(idx, value) {
+        newLine += " <span class = 'value " + property + " " + value + " " + typeOfValue(value) + "'>" + value + "</span>";
+      });
 
-    result.push(newLine + ";<br>");
-    updatePropertyValueStats(property, values);
+      result.push(newLine + ";<br>");
+      updatePropertyValueStats(property, values);
+    } else {
+      result.push(line + "<br>");
+    }
   });
 
   return result;
@@ -89,7 +93,12 @@ function treeToHTMLHelper(selector, tree) {
 }
 
 function mixinsToHTML(mixins) {
-  return "";
+  var html = "";
+  $.each(mixins, function(selector, subtree) {
+    html += treeToHTMLHelper(mixinsKey + " " + selector, subtree).join("\n");
+    html += "\n\n";
+  });
+  return html;
 }
 
 function variablesToHTML(variables) {
