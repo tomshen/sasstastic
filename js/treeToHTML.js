@@ -11,6 +11,9 @@ function updatePropertyValueStats(property, values) {
 
   $.each(values, function(idx, value) {
     if (typeOfValue(value) !== "variable") { 
+      if (typeOfValue(value) === "color") {
+        value = colorToRGBA(value);
+      }
       if (propertyValueStats[property][value] === undefined) {
         propertyValueStats[property][value] = 0;
       }
@@ -40,7 +43,7 @@ function leafToHTML(leaf) {
         if (type === "color") {
           value = colorToRGBA(value);
         }
-        newLine += " <span class = 'value " + property + " " + value + " " + type + "'>" + value + "</span>";
+        newLine += " <span class = 'value " + property + " " + value.replace(/[\)\(]/g,'') + " " + type + "'>" + value + "</span>";
       });
 
       result.push(newLine + ";<br>");
