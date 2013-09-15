@@ -1,4 +1,9 @@
-﻿$(document).ready(function() {
+﻿function sanitizeValue(value) {
+  value = value.replace(/\./g,'\\\\.');
+               .replace(/\%/g,'\\\\%');
+}
+
+$(document).ready(function() {
   $(document).delegate(".active-type", "click", function() {
     var highlighted = "highlighted";
     if ($(this).hasClass(highlighted)) {
@@ -15,7 +20,7 @@
 function valueToVariable(value, variableName) {
   var highlighted = $(".active-type.highlighted");
   highlighted
-    .removeClass(value)
+    .removeClass(sanitizeValue(value))
     .removeClass("highlighted")
     .addClass("variable")
     .text(variableName);
@@ -28,12 +33,12 @@ function valueToVariable(value, variableName) {
   return nextValue();
 }
 
-function highlightAllOfValue(value) {
-  $("." + value).addClass("active-type").addClass("highlighted");
+function highLightAllOfValue(value) {
+  $("." + sanitizeValue(value)).addClass("active-type").addClass("highlighted");
 }
 
-function unhighlightAllOfValue(value) {
-  $("." + value).removeClass("active-type").removeClass("highlighted");
+function unHighLightAllOfValue(value) {
+  $("." + sanitizeValue(value)).removeClass("active-type").removeClass("highlighted");
 }
 
 var valuesQueue = [];
@@ -45,12 +50,12 @@ function nextValue() {
     });
   }
   var val = valuesQueue.shift();
-  highlightAllOfValue(val);
+  highLightAllOfValue(val);
   return val;
 }
 
 function skipValue(value) {
-  unhighlightAllOfValue(value);
+  unHighLightAllOfValue(value);
   delete valueStats[value];
   return nextValue();
 }
