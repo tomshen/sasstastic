@@ -18,8 +18,8 @@ function getVariableName() {
     return false;
   }
 
-  if(name.search(/\s/) !== -1) {
-    makeError("Variable names must not contain spaces")
+  if(name.search(/[^\$\-\_\sa-zA-Z  ]/) !== -1) {
+    makeError("Variable names must not contain invalid characters")
     return false;
   }
   if(name === "") {
