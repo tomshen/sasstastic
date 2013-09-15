@@ -93,6 +93,9 @@ function treeToHTMLHelper(selector, tree) {
 }
 
 function mixinsToHTML(mixins) {
+  if (mixins === undefined) {
+    return "";
+  }
   var html = "";
   $.each(mixins, function(selector, subtree) {
     html += treeToHTMLHelper(mixinsKey + " " + selector, subtree).join("\n");
@@ -102,7 +105,14 @@ function mixinsToHTML(mixins) {
 }
 
 function variablesToHTML(variables) {
-  return "";
+  if (variables === undefined) {
+    return "";
+  }
+  var html = variablesKey + " {";
+  $.each(variables, function(property, value) {
+    html += indentation + property + ": " + value + ";";
+  });
+  return html + "\n}";
 }
 
 var mixinsKey = "@mixin";
