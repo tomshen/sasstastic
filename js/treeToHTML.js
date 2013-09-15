@@ -26,6 +26,7 @@ function updatePropertyValueStats(property, values) {
   });
 }
 
+// Matcher for .match(/rgba?\([^\(]*\)/);
 function leafToHTML(leaf) {
   var result = [];
 
