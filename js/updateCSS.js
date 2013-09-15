@@ -1,6 +1,6 @@
 ﻿function sanitizeValue(value) {
-  return value.replace(/\./g,'\\\\.')
-               .replace(/\%/g,'\\\\%');
+  return value.replace(/\./g,'\\.')
+              .replace(/\%/g,'\\%');
 }
 
 $(document).ready(function() {
@@ -33,6 +33,29 @@ function valueToVariable(value, variableName) {
   return nextValue();
 }
 
+// Converts all active instances of value to use variableName
+// currently only update valueStats
+function valueOfTypeToVariable(value, variableName) {
+  var highlighted = $(".active-type.highlighted");
+  var changed = 0;
+  $.each(highlighted, function(idx, occurance) {
+    var currentValue = $(occurance).text();
+    $(occurance)
+      .removeClass(sanitizeValue(currentValue))
+      .removeClass("highlighted")
+      .addClass("variable")
+      .text(getMultiplier(value, currentValue) + "*" + variableName);
+    valueStats[currentValue] -= 1;
+    if (valueStats[currentValue] === 0) {
+      delete valueStats[currentValue];
+    }
+  });
+  $(".active-type").removeClass("active-type");
+
+  return nextValue();
+}
+
+
 function highLightAllOfValue(value) {
   $("." + sanitizeValue(value)).addClass("active-type").addClass("highlighted");
 }
@@ -43,6 +66,7 @@ function unHighLightAllOfValue(value) {
 
 function highLightAllOfType(value) {
   $("." + typeOfValue(value)).addClass("active-type").addClass("highlighted");
+  unHighLightAllOfValue(value);
 }
 
 function unHighLightAllOfType(value) {
