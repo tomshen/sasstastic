@@ -10,17 +10,19 @@ function updatePropertyValueStats(property, values) {
   }
 
   $.each(values, function(idx, value) {
-    if (propertyValueStats[property][value] === undefined) {
-      propertyValueStats[property][value] = 0;
+    if (typeOfValue(value) !== "variable") { 
+      if (propertyValueStats[property][value] === undefined) {
+        propertyValueStats[property][value] = 0;
+      }
+
+      propertyValueStats[property][value] += 1;
+
+      if (valueStats[value] === undefined) {
+        valueStats[value] = 0;
+      }
+
+      valueStats[value] += 1;
     }
-
-    propertyValueStats[property][value] += 1;
-
-    if (valueStats[value] === undefined) {
-      valueStats[value] = 0;
-    }
-
-    valueStats[value] += 1;
   });
 }
 
@@ -40,6 +42,10 @@ function typeOfValue(value) {
     }
     return maybeType[0];
   };
+
+  if (value.match(/^\$/)) {
+    return "variable";
+  }
 
   return "other";
 }
