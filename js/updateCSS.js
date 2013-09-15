@@ -24,6 +24,7 @@ function valueToVariable(value, variableName) {
   if (valueStats[value] === 0) {
     delete valueStats[value];
   }
+  return nextValue();
 }
 
 function highLightAllOfValue(value) {
