@@ -1,5 +1,5 @@
 ﻿function sanitizeValue(value) {
-  value = value.replace(/\./g,'\\\\.')
+  return value.replace(/\./g,'\\\\.')
                .replace(/\%/g,'\\\\%');
 }
 
@@ -39,6 +39,14 @@ function highLightAllOfValue(value) {
 
 function unHighLightAllOfValue(value) {
   $("." + sanitizeValue(value)).removeClass("active-type").removeClass("highlighted");
+}
+
+function highLightAllOfType(value) {
+  $("." + typeOfValue(value)).addClass("active-type").addClass("highlighted");
+}
+
+function unHighLightAllOfType(value) {
+  $("." + typeOfValue(value)).removeClass("active-type").removeClass("highlighted");
 }
 
 var valuesQueue = [];
