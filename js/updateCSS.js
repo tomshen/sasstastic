@@ -63,7 +63,8 @@ function unHighLightAllOfValue(value) {
 }
 
 function highLightAllOfType(value) {
-  $("." + typeOfValue(value)).addClass("active-type").addClass("highlighted");
+  $("." + typeOfValue(value)).addClass("active-type");
+  highLightAllOfValue(value);
 }
 
 function unHighLightAllOfType(value) {
