@@ -15,6 +15,12 @@ $(document).ready(function() {
   });
 
 
+  $("#variable-name-input").blur(function() {
+    name = getVariableName();
+    console.log(name);
+  })
+
+
   //Hide everything, and then show the first box
   hideEverythingImmediately();
   showEntry();
@@ -30,8 +36,9 @@ $(document).ready(function() {
   });
 
 
+  //when they click to submit the edited css, hide the
+  //css editing area and show the output
   $("#edited-css-submit-button").click(function() {
-
     text = $(".css-container").text();
 
     $("#css-output-textarea").text(text);
@@ -63,27 +70,4 @@ function showOutput() {
   setTimeout(function() {
     $(".css-output").fadeIn();
   }, 502)
-}
-
-function makeError(err) {
-  $("#variable-name-errors").text(err);
-}
-
-
-function getVariableName() {
-  var name = $("#variable-name-input").val();
-
-  if(name[0] !== "$") {
-    makeError("Variable names must start with the dollar sign ($)");
-    return false;
-  }
-
-  if(name.search(/\s/) !== -1) {
-    makeError("Variable names must not contain spaces")
-    return false;
-  }
-  if(name === "") {
-    makeError("Enter variable name")
-    return false;
-  }
 }
