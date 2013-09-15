@@ -79,21 +79,23 @@ body {
     color: red;
     border-left: 2px solid red;
     margin: 0.8rem 0;
-    padding: 0.8rem; }
+    padding: 0.8rem;
+    font-weight: bold; }
   .variable-editor .instructions {
     position: absolute;
     right: 0;
-    top: 0; }
+    top: 0;
+    font-weight: bold; }
     .variable-editor .instructions .heading {
       cursor: pointer;
       position: absolute;
       right: 0;
       top: 0;
       float: right;
-      color: #237bdb;
+      color: #4d73d6;
       padding: 0.2rem 0.3rem; }
     .variable-editor .instructions .heading:hover, .variable-editor .instructions .heading.extended {
-      background-color: #237bdb;
+      background-color: #4d73d6;
       color: white;
       border-radius: 0.3rem; }
     .variable-editor .instructions .heading.extended {
@@ -104,7 +106,7 @@ body {
       right: 0;
       top: 1.4em;
       width: 20rem;
-      background-color: #237bdb;
+      background-color: #4d73d6;
       color: white;
       border-radius: 0.3rem;
       padding: 1rem 1rem; }
