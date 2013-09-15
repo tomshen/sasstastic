@@ -13,6 +13,6 @@ $(document).ready(function() {
 	});
 
   $('#css-submit-button').click(function() {
-    tree = parseSCSS($('#css-entry-textarea').value());
+    tree = parseSCSS($('#css-entry-textarea').val());
   });
 });

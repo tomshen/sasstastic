@@ -61,5 +61,3 @@ function parseSCSS (css) {
 
   return tree;
 }
-
-module.exports.parseSCSS = parseSCSS;
