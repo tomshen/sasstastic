@@ -29,7 +29,6 @@ $(document).ready(function() {
     value = $("#variable-value-display").text();
     console.log(name);
     if(name !== "false" && name) {
-      $("#variable-name-input").empty();
       $("#variables-container").append("<div class='variable selector'>" + 
                                   "<span class='variable-name'>" +  
                                     name +
@@ -39,6 +38,7 @@ $(document).ready(function() {
       var newInstance = valueToVariable($("#variable-value-display").text(), name)
       if(newInstance) {
         $("#variable-name-display").text("$temp");
+        $("#variable-name-input").empty();
         $("#variable-value-display").text(newInstance);
       }
       else {
