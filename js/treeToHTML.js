@@ -35,7 +35,11 @@ function leafToHTML(leaf) {
       var property = line.substring(0, line.indexOf(":"));
       var newLine = "<span class = 'property-name'>" + property + "</span>:";
       $.each(values, function(idx, value) {
-        newLine += " <span class = 'value " + property + " " + value + " " + typeOfValue(value) + "'>" + value + "</span>";
+        var type = typeOfValue(value);
+        if (type === "color") {
+          value = colorToRGBA(value);
+        }
+        newLine += " <span class = 'value " + property + " " + value + " " + type + "'>" + value + "</span>";
       });
 
       result.push(newLine + ";<br>");
